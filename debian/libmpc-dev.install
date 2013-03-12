@@ -1,0 +1,4 @@
+usr/lib/libmpc.so	usr/lib
+usr/lib/libmpc.a	usr/lib
+usr/lib/libmpc.la	usr/lib
+usr/include/*.h		usr/include
