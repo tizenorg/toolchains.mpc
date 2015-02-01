@@ -1,4 +1,3 @@
-#sbs-git:slp/pkgs/m/mpclib mpc 0.9-2slp2+s1 19641218861d7f4fde0e9568aad25963f4768bb8
 Name:       mpc
 Summary:    A multiprecision library
 Version:    0.9
@@ -13,6 +12,7 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  gmp-devel
 BuildRequires:  mpfr-devel
+
 
 %description
 Mpc is a C library for the arithmetic of complex numbers with arbitrarily 
@@ -45,8 +45,8 @@ autoreconf --install --force
 %configure --disable-static \
     EGREP=egrep
 
+make %{?_smp_mflags}
 
-make
 %install
 rm -rf %{buildroot}
 
@@ -57,11 +57,11 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/libmpc.so
-/usr/lib/libmpc.so.2
-/usr/lib/libmpc.so.2.0.0
+%{_libdir}/libmpc.so.2
+%{_libdir}/libmpc.so.2.0.0
 
 
 %files devel
 %defattr(-,root,root,-)
+%{_libdir}/libmpc.so
 /usr/include/mpc.h
